@@ -4,6 +4,7 @@ import { getImage } from "astro:assets";
 import background from "../assets/background.webp";
 import mobileBackground from "../assets/background.mobile@2x.webp";
 const optimizedBackground = await getImage({ src: background, format: "avif" });
+const optimizedBackgroundCSS = `url(${optimizedBackground.rawOptions.src.src}) no-repeat`;
 const optimizedMobileBackground = await getImage({ src: mobileBackground, format: "avif" });
 ---
 
@@ -29,7 +30,7 @@ const optimizedMobileBackground = await getImage({ src: mobileBackground, format
           </svg>
         </div>
         <div class="about">
-          <img class="background" srcset={`${optimizedMobileBackground.src}, ${optimizedBackground.src} 2x`} />
+          <img class="background" srcset={`${optimizedMobileBackground.src}`} />
           <div class="text">
             <div>Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah</div>
             <div>
@@ -97,7 +98,28 @@ const optimizedMobileBackground = await getImage({ src: mobileBackground, format
   </body>
 </html>
 
-<style>
+<style define:vars={{ optimizedBackgroundCSS }}>
+  .container {
+    position: relative;
+    height: 100%;
+    background: white;
+  }
+  @media (min-width: 1200px) {
+    .container:before {
+      content: "";
+      display: block;
+      width: 59%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: var(--optimizedBackgroundCSS);
+      background-position: center left;
+      background-size: cover;
+      pointer-events: none;
+    }
+  }
+
   .about {
     display: flex;
     flex-direction: column;
