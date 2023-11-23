@@ -235,44 +235,6 @@
     }
   }
 
-  .background {
-    object-fit: cover;
-    object-position: right;
-  }
-  @media (min-width: 1200px) {
-    .background {
-      display: none;
-    }
-  }
 
-  .text {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  @media (min-width: 1200px) {
-    .text {
-      display: block;
-      padding: unset;
-    }
-  }
 
-  button,
-  a {
-    align-items: center;
-    background-color: #833ae0;
-    border-style: none;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    flex-shrink: 0;
-    font-family: var(--font-cera);
-    justify-content: center;
-    margin: 0;
-    outline: none;
-    text-decoration: none;
-    transition:
-      color 0.2s ease 0s,
-      background-color;
-  }
+  

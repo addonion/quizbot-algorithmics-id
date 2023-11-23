@@ -1,11 +1,12 @@
 ---
 import "../styles/global.css";
-import { getImage } from "astro:assets";
-import background from "../assets/background.webp";
+import { Image } from "astro:assets";
+
 import mobileBackground from "../assets/background.mobile@2x.webp";
-const optimizedBackground = await getImage({ src: background, format: "avif" });
-const optimizedBackgroundCSS = `url(${optimizedBackground.rawOptions.src.src}) no-repeat`;
-const optimizedMobileBackground = await getImage({ src: mobileBackground, format: "avif" });
+
+import icon1 from "../assets/icons/1.svg?raw";
+import icon2 from "../assets/icons/2.svg?raw";
+import icon3 from "../assets/icons/3.svg?raw";
 ---
 
 <html lang="en">
@@ -30,14 +31,24 @@ const optimizedMobileBackground = await getImage({ src: mobileBackground, format
           </svg>
         </div>
         <div class="about">
-          <img class="background" srcset={`${optimizedMobileBackground.src}`} />
+          <Image class="background" src={mobileBackground} alt="Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah" />
           <div class="text">
-            <div>Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah</div>
-            <div>
-              <div>Untuk anak usia 5-17 tahun</div>
-              <div>Membuat proyek IT kecil pertamanya</div>
-              <div>Membahas pengalaman dan hobi anak</div>
+            <div class="title">Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah</div>
+            <div class="description">
+              <div>
+                <Fragment set:html={icon1} />
+                 Untuk anak usia 5-17 tahun
+              </div>
+              <div>
+                <Fragment set:html={icon2} />
+                 Membuat proyek IT kecil pertamanya
+              </div>
+              <div>
+                <Fragment set:html={icon3} />
+                 Membahas pengalaman dan hobi anak
+              </div>
             </div>
+            <button id="button" style="width: 341px" class="large is-animated"> Mulai</button>
           </div>
         </div>
       </div>
@@ -98,7 +109,7 @@ const optimizedMobileBackground = await getImage({ src: mobileBackground, format
   </body>
 </html>
 
-<style define:vars={{ optimizedBackgroundCSS }}>
+<style>
   .container {
     position: relative;
     height: 100%;
@@ -113,10 +124,20 @@ const optimizedMobileBackground = await getImage({ src: mobileBackground, format
       position: absolute;
       right: 0;
       bottom: 0;
-      background: var(--optimizedBackgroundCSS);
+      background: url(../assets/background.webp) no-repeat;
       background-position: center left;
       background-size: cover;
       pointer-events: none;
+    }
+  }
+
+  .background {
+    object-fit: cover;
+    object-position: right;
+  }
+  @media (min-width: 1200px) {
+    .background {
+      display: none;
     }
   }
 
@@ -130,6 +151,23 @@ const optimizedMobileBackground = await getImage({ src: mobileBackground, format
     .about {
       max-width: 364px;
       padding: 162px 0 0;
+    }
+  }
+
+  .text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    [astro-icon] {
+      width: 24px;
+      vertical-align: text-bottom;
+    }
+  }
+  @media (min-width: 1200px) {
+    .text {
+      display: block;
+      padding: unset;
     }
   }
 
@@ -150,6 +188,75 @@ const optimizedMobileBackground = await getImage({ src: mobileBackground, format
   }
 
   .description {
-    padding-bottom: 24px;
+    padding-bottom: 32px;
+    & > div {
+      padding-bottom: 9px;
+      font-size: 18px;
+    }
+  }
+
+  button,
+  a {
+    align-items: center;
+    background-color: #833ae0;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-family: var(--font-cera);
+    justify-content: center;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    transition:
+      color 0.2s ease 0s,
+      background-color;
+  }
+  .large {
+    line-height: 24px;
+    padding: 0 24px;
+    width: 100% !important;
+    font-size: 18px;
+    border-radius: 12px;
+    height: 48px;
+  }
+
+  @media (min-width: 1200px) {
+    .large {
+      width: unset;
+    }
+  }
+
+  @keyframes animateHighlight {
+    0% {
+      left: 0;
+    }
+
+    30% {
+      left: 200%;
+    }
+
+    to {
+      left: 200%;
+    }
+  }
+
+  .is-animated {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .is-animated:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 126px;
+    height: 177px;
+    background: radial-gradient(50% 43% at 50% 54%, hsl(265.86, 73.42%, 69.02%) 0%, hsla(266, 100%, 60%, 0) 100%);
+    transform: translate(-100%, -50%) skew(-45deg);
+    animation: animateHighlight 3s linear infinite;
+    pointer-events: none;
   }
 </style>
