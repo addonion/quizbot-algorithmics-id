@@ -262,6 +262,9 @@
   .background {
     width: 100%;
     height: auto;
+    background: url(../assets/background.mobile@blur.webp) no-repeat;
+    background-position: center left;
+    background-size: cover;
   }
   @media (min-width: 1200px) {
     .background {
