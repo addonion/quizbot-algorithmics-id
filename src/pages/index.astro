@@ -30,6 +30,7 @@ import icon3 from "../assets/icons/3.svg?raw";
               clip-rule="evenodd"></path>
           </svg>
         </div>
+
         <div class="about">
           <Image class="background" src={mobileBackground} alt="Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah" />
           <div class="text">
@@ -47,13 +48,65 @@ import icon3 from "../assets/icons/3.svg?raw";
                 <Fragment set:html={icon3} />
                  Membahas pengalaman dan hobi anak
               </div>
+              <button id="button" style="width: 341px" class="large is-animated">Mulai</button>
             </div>
-            <button id="button" style="width: 341px" class="large is-animated"> Mulai</button>
+          </div>
+        </div>
+
+        <div id="carrot-box">
+          <div id="carrot-embedded-loader" data-widget-id="1547069383912719745">
+            <svg style="width:100px;height:100px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" xml:space="preserve">
+              <path fill="#4747d1" d="M73 50c0-12.7-10.3-23-23-23S27 37.3 27 50m3.9 0c0-10.5 8.5-19.1 19.1-19.1S69.1 39.5 69.1 50">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
+              </path>
+            </svg>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Show bot -->
+    <script>
+      document.getElementById("button")?.addEventListener("click", () => {
+        document.getElementById("carrot-box")?.classList.add("active");
+      });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script type="text/javascript" id="" src="https://www.googletagmanager.com/gtag/js?id=GTM-KR42WGP"></script>
+    <script type="text/javascript" id="">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GTM-KR42WGP");
+    </script>
+
+    <!-- Dashly -->
+    <script type="text/javascript">
+      !(function () {
+        function t(t, e) {
+          return function () {
+            window.dashlyasync.push(t, arguments);
+          };
+        }
+        if ("undefined" == typeof dashly) {
+          var e = document.createElement("script");
+          (e.type = "text/javascript"),
+            (e.async = !0),
+            (e.src = "https://cdn.dashly.app/api.min.js"),
+            document.getElementsByTagName("head")[0].appendChild(e),
+            (window.dashly = {}),
+            (window.dashlyasync = []),
+            (dashly.settings = {});
+          for (var n = ["connect", "track", "identify", "auth", "onReady", "addCallback", "removeCallback", "trackMessageInteraction"], a = 0; a < n.length; a++) dashly[n[a]] = t(n[a]);
+        }
+      })(),
+        dashly.connect("7397-21bade4da25d30fc856f8f18b66");
+    </script>
+
+    <!-- Yandex metrika -->
     <script type="text/javascript" id="">
       (function (a, e, f, g, b, c, d) {
         a[b] =
@@ -74,6 +127,7 @@ import icon3 from "../assets/icons/3.svg?raw";
       <div><img src="https://mc.yandex.ru/watch/89634730" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
 
+    <!-- Facebook -->
     <script type="text/javascript" id="">
       !(function (b, e, f, g, a, c, d) {
         b.fbq ||
@@ -96,16 +150,6 @@ import icon3 from "../assets/icons/3.svg?raw";
       fbq("track", "PageView");
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1152940395642591&ev=PageView&noscript=1" /></noscript>
-
-    <script type="text/javascript" id="" src="https://www.googletagmanager.com/gtag/js?id=AW-11094781579"></script>
-    <script type="text/javascript" id="">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "AW-11094781579");
-    </script>
   </body>
 </html>
 
@@ -132,8 +176,8 @@ import icon3 from "../assets/icons/3.svg?raw";
   }
 
   .background {
-    object-fit: cover;
-    object-position: right;
+    width: 100%;
+    height: auto;
   }
   @media (min-width: 1200px) {
     .background {
@@ -142,13 +186,12 @@ import icon3 from "../assets/icons/3.svg?raw";
   }
 
   .about {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
   }
-
   @media (min-width: 1200px) {
     .about {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
       max-width: 364px;
       padding: 162px 0 0;
     }
@@ -171,30 +214,38 @@ import icon3 from "../assets/icons/3.svg?raw";
     }
   }
 
+  /* Title */
   .title {
     margin-bottom: 16px;
+    padding: 16px 20px 0;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 30px;
   }
-
   @media (min-width: 1200px) {
     .title {
       margin-bottom: 12px;
+      padding: 0;
       width: 517px;
       font-size: 48px;
       line-height: 52px;
     }
   }
 
+  /* Description */
   .description {
-    padding-bottom: 32px;
-    & > div {
-      padding-bottom: 9px;
+    padding: 0 20px;
+    font-size: 16px;
+    @media (min-width: 1200px) {
       font-size: 18px;
+      padding: 0;
+    }
+    & > div {
+      padding: 0 0 9px;
     }
   }
 
+  /* Button */
   button,
   a {
     align-items: center;
@@ -214,6 +265,7 @@ import icon3 from "../assets/icons/3.svg?raw";
       background-color;
   }
   .large {
+    margin-top: 21px;
     line-height: 24px;
     padding: 0 24px;
     width: 100% !important;
@@ -221,13 +273,12 @@ import icon3 from "../assets/icons/3.svg?raw";
     border-radius: 12px;
     height: 48px;
   }
-
   @media (min-width: 1200px) {
     .large {
+      margin-top: 32px;
       width: unset;
     }
   }
-
   @keyframes animateHighlight {
     0% {
       left: 0;
@@ -241,12 +292,10 @@ import icon3 from "../assets/icons/3.svg?raw";
       left: 200%;
     }
   }
-
   .is-animated {
     position: relative;
     overflow: hidden;
   }
-
   .is-animated:before {
     content: "";
     position: absolute;
@@ -258,5 +307,21 @@ import icon3 from "../assets/icons/3.svg?raw";
     transform: translate(-100%, -50%) skew(-45deg);
     animation: animateHighlight 3s linear infinite;
     pointer-events: none;
+  }
+
+  #carrot-box {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    &.active {
+      top: 0;
+    }
+    @media (min-width: 1200px) {
+      padding-top: 4%;
+      left: 50%;
+      width: 50%;
+      height: 96%;
+    }
   }
 </style>
