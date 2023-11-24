@@ -7,6 +7,8 @@ import mobileBackground from "../assets/background.mobile@2x.webp";
 import icon1 from "../assets/icons/1.svg?raw";
 import icon2 from "../assets/icons/2.svg?raw";
 import icon3 from "../assets/icons/3.svg?raw";
+
+import str from "../assets/str.png";
 ---
 
 <html lang="en">
@@ -33,7 +35,7 @@ import icon3 from "../assets/icons/3.svg?raw";
 
         <div class="about">
           <Image class="background" src={mobileBackground} alt="Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah" />
-          <div class="text">
+          <div id="text" class="text">
             <div class="title">Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah</div>
             <div class="description">
               <div>
@@ -51,6 +53,16 @@ import icon3 from "../assets/icons/3.svg?raw";
               <button id="button" style="width: 341px" class="large is-animated">Mulai</button>
             </div>
           </div>
+          <div id="text--after" class="text d-none">
+            <div class="title">
+              Hanya 1 menit untuk mengisi!
+              <br />
+               Daftarkan segera anak Anda untuk Kelas Percobaan Gratis
+              <div>
+                <Image src={str} width={300} alt="Hanya 1 menit untuk mengisi!" />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div id="carrot-box">
@@ -60,6 +72,9 @@ import icon3 from "../assets/icons/3.svg?raw";
                 <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
               </path>
             </svg>
+            <div class="loader">
+              <p>Mengunggah pertanyaan untuk membantu kami membuat program pelatihan yang sempurna untuk Anda, terima kasih telah menunggu!</p>
+            </div>
           </div>
         </div>
       </div>
@@ -67,8 +82,13 @@ import icon3 from "../assets/icons/3.svg?raw";
 
     <!-- Show bot -->
     <script>
-      document.getElementById("button")?.addEventListener("click", () => {
+      const button = document.getElementById("button");
+      if (button) button.style.display = "block";
+
+      button?.addEventListener("click", () => {
         document.getElementById("carrot-box")?.classList.add("active");
+        document.getElementById("text")?.classList.add("d-none");
+        document.getElementById("text--after")?.classList.remove("d-none");
       });
     </script>
 
@@ -152,176 +172,3 @@ import icon3 from "../assets/icons/3.svg?raw";
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1152940395642591&ev=PageView&noscript=1" /></noscript>
   </body>
 </html>
-
-<style>
-  .container {
-    position: relative;
-    height: 100%;
-    background: white;
-  }
-  @media (min-width: 1200px) {
-    .container:before {
-      content: "";
-      display: block;
-      width: 59%;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      background: url(../assets/background.webp) no-repeat;
-      background-position: center left;
-      background-size: cover;
-      pointer-events: none;
-    }
-  }
-
-  .background {
-    width: 100%;
-    height: auto;
-  }
-  @media (min-width: 1200px) {
-    .background {
-      display: none;
-    }
-  }
-
-  .about {
-  }
-  @media (min-width: 1200px) {
-    .about {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      max-width: 364px;
-      padding: 162px 0 0;
-    }
-  }
-
-  .text {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    [astro-icon] {
-      width: 24px;
-      vertical-align: text-bottom;
-    }
-  }
-  @media (min-width: 1200px) {
-    .text {
-      display: block;
-      padding: unset;
-    }
-  }
-
-  /* Title */
-  .title {
-    margin-bottom: 16px;
-    padding: 16px 20px 0;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
-  }
-  @media (min-width: 1200px) {
-    .title {
-      margin-bottom: 12px;
-      padding: 0;
-      width: 517px;
-      font-size: 48px;
-      line-height: 52px;
-    }
-  }
-
-  /* Description */
-  .description {
-    padding: 0 20px;
-    font-size: 16px;
-    @media (min-width: 1200px) {
-      font-size: 18px;
-      padding: 0;
-    }
-    & > div {
-      padding: 0 0 9px;
-    }
-  }
-
-  /* Button */
-  button,
-  a {
-    align-items: center;
-    background-color: #833ae0;
-    border-style: none;
-    color: #fff;
-    cursor: pointer;
-    display: inline-flex;
-    flex-shrink: 0;
-    font-family: var(--font-cera);
-    justify-content: center;
-    margin: 0;
-    outline: none;
-    text-decoration: none;
-    transition:
-      color 0.2s ease 0s,
-      background-color;
-  }
-  .large {
-    margin-top: 21px;
-    line-height: 24px;
-    padding: 0 24px;
-    width: 100% !important;
-    font-size: 18px;
-    border-radius: 12px;
-    height: 48px;
-  }
-  @media (min-width: 1200px) {
-    .large {
-      margin-top: 32px;
-      width: unset;
-    }
-  }
-  @keyframes animateHighlight {
-    0% {
-      left: 0;
-    }
-
-    30% {
-      left: 200%;
-    }
-
-    to {
-      left: 200%;
-    }
-  }
-  .is-animated {
-    position: relative;
-    overflow: hidden;
-  }
-  .is-animated:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 126px;
-    height: 177px;
-    background: radial-gradient(50% 43% at 50% 54%, hsl(265.86, 73.42%, 69.02%) 0%, hsla(266, 100%, 60%, 0) 100%);
-    transform: translate(-100%, -50%) skew(-45deg);
-    animation: animateHighlight 3s linear infinite;
-    pointer-events: none;
-  }
-
-  #carrot-box {
-    position: absolute;
-    top: -100%;
-    width: 100%;
-    height: 100%;
-    &.active {
-      top: 0;
-    }
-    @media (min-width: 1200px) {
-      padding-top: 4%;
-      left: 50%;
-      width: 50%;
-      height: 96%;
-    }
-  }
-</style>

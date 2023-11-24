@@ -184,6 +184,9 @@
   *:after {
     box-sizing: border-box;
   }
+  .d-none {
+    display: none !important;
+  }
 
   /* Основные стили */
   .content {
@@ -235,6 +238,193 @@
     }
   }
 
+.container {
+    position: relative;
+    height: 100%;
+    background: white;
+  }
+  @media (min-width: 1200px) {
+    .container:before {
+      content: "";
+      display: block;
+      width: 59%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: url(../assets/background.webp) no-repeat;
+      background-position: center left;
+      background-size: cover;
+      pointer-events: none;
+    }
+  }
 
+  .background {
+    width: 100%;
+    height: auto;
+  }
+  @media (min-width: 1200px) {
+    .background {
+      display: none;
+    }
+  }
 
-  
+  .about {
+  }
+  @media (min-width: 1200px) {
+    .about {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      max-width: 364px;
+      padding: 162px 0 0;
+    }
+  }
+
+  .text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    [astro-icon] {
+      width: 24px;
+      vertical-align: text-bottom;
+    }
+  }
+  @media (min-width: 1200px) {
+    .text {
+      display: block;
+      padding: unset;
+    }
+  }
+
+  /* Title */
+  .title {
+    margin-bottom: 16px;
+    padding: 16px 20px 0;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  @media (min-width: 1200px) {
+    .title {
+      margin-bottom: 12px;
+      padding: 0;
+      width: 517px;
+      font-size: 48px;
+      line-height: 52px;
+    }
+  }
+
+  /* Description */
+  .description {
+    padding: 0 20px;
+    font-size: 16px;
+    @media (min-width: 1200px) {
+      font-size: 18px;
+      padding: 0;
+    }
+    & > div {
+      padding: 0 0 9px;
+    }
+  }
+
+  /* Button */
+  button,
+  a {
+    align-items: center;
+    background-color: #833ae0;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-family: var(--font-cera);
+    justify-content: center;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    transition:
+      color 0.2s ease 0s,
+      background-color;
+  }
+  .large {
+    display: none;
+    margin-top: 21px;
+    line-height: 24px;
+    padding: 0 24px;
+    width: 100% !important;
+    font-size: 18px;
+    border-radius: 12px;
+    height: 48px;
+  }
+  @media (min-width: 1200px) {
+    .large {
+      margin-top: 32px;
+      width: unset;
+    }
+  }
+  @keyframes animateHighlight {
+    0% {
+      left: 0;
+    }
+
+    30% {
+      left: 200%;
+    }
+
+    to {
+      left: 200%;
+    }
+  }
+  .is-animated {
+    position: relative;
+    overflow: hidden;
+  }
+  .is-animated:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 126px;
+    height: 177px;
+    background: radial-gradient(50% 43% at 50% 54%, hsl(265.86, 73.42%, 69.02%) 0%, hsla(266, 100%, 60%, 0) 100%);
+    transform: translate(-100%, -50%) skew(-45deg);
+    animation: animateHighlight 3s linear infinite;
+    pointer-events: none;
+  }
+
+  #carrot-box {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    &.active {
+      top: 0;
+    }
+    .loader {
+      position: absolute;
+      top: 50%;
+      padding: 20px;
+      text-align: center;
+      z-index: 1;
+      font-size: 20px;
+    }
+    .carrotquest-css-reset {
+      z-index: 2;
+    }
+    @media (min-width: 1200px) {
+      margin-top: 4%;
+      left: 50%;
+      width: 50%;
+      height: 92%;
+      border-radius: 24px;
+      box-shadow: 0 5px 100px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      .loader {
+        top: 55%;
+      }
+    }
+  }
+
