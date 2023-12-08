@@ -22,6 +22,33 @@ import str from "../assets/str.png";
     <!-- Sentry -->
     <script src="https://js.sentry-cdn.com/0cbb4848c794cb752a5375670fc2080f.min.js" crossorigin="anonymous"></script>
 
+    <!-- Dashly -->
+    <script type="text/javascript" is:inline>
+      // Logging
+      window.dashlylogs = {};
+      window.dashlylogs.initTimestamp = Date.now();
+
+      !(function () {
+        function t(t, e) {
+          return function () {
+            window.dashlyasync.push(t, arguments);
+          };
+        }
+        if ("undefined" == typeof dashly) {
+          var e = document.createElement("script");
+          (e.type = "text/javascript"),
+            (e.async = !0),
+            (e.src = "https://cdn.dashly.app/api.min.js"),
+            document.getElementsByTagName("head")[0].appendChild(e),
+            (window.dashly = {}),
+            (window.dashlyasync = []),
+            (dashly.settings = {});
+          for (var n = ["connect", "track", "identify", "auth", "onReady", "addCallback", "removeCallback", "trackMessageInteraction"], a = 0; a < n.length; a++) dashly[n[a]] = t(n[a]);
+        }
+      })(),
+        dashly.connect("7397-21bade4da25d30fc856f8f18b66");
+    </script>
+
     <!-- Google Tag Manager -->
     <script is:inline>
       (function (w, d, s, l, i) {
@@ -111,29 +138,6 @@ import str from "../assets/str.png";
         document.getElementById("text")?.classList.add("d-none");
         document.getElementById("text--after")?.classList.remove("d-none");
       });
-    </script>
-
-    <!-- Dashly -->
-    <script type="text/javascript" is:inline>
-      !(function () {
-        function t(t, e) {
-          return function () {
-            window.dashlyasync.push(t, arguments);
-          };
-        }
-        if ("undefined" == typeof dashly) {
-          var e = document.createElement("script");
-          (e.type = "text/javascript"),
-            (e.async = !0),
-            (e.src = "https://cdn.dashly.app/api.min.js"),
-            document.getElementsByTagName("head")[0].appendChild(e),
-            (window.dashly = {}),
-            (window.dashlyasync = []),
-            (dashly.settings = {});
-          for (var n = ["connect", "track", "identify", "auth", "onReady", "addCallback", "removeCallback", "trackMessageInteraction"], a = 0; a < n.length; a++) dashly[n[a]] = t(n[a]);
-        }
-      })(),
-        dashly.connect("7397-21bade4da25d30fc856f8f18b66");
     </script>
 
     <!-- Facebook -->
