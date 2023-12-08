@@ -7,10 +7,10 @@ settings:
 dependencies:
   '@astrojs/check':
     specifier: ^0.3.1
-    version: 0.3.1(typescript@5.3.2)
+    version: 0.3.1(typescript@5.3.3)
   astro:
-    specifier: ^4.0.2
-    version: 4.0.2(sass@1.69.5)(typescript@5.3.2)
+    specifier: ^4.0.3
+    version: 4.0.3(sass@1.69.5)(typescript@5.3.3)
   sass:
     specifier: ^1.69.5
     version: 1.69.5
@@ -18,8 +18,8 @@ dependencies:
     specifier: ^0.33.0
     version: 0.33.0
   typescript:
-    specifier: ^5.3.2
-    version: 5.3.2
+    specifier: ^5.3.3
+    version: 5.3.3
 
 packages:
 
@@ -31,17 +31,17 @@ packages:
       '@jridgewell/trace-mapping': 0.3.20
     dev: false
 
-  /@astrojs/check@0.3.1(typescript@5.3.2):
+  /@astrojs/check@0.3.1(typescript@5.3.3):
     resolution: {integrity: sha512-3LjEUvh7Z4v9NPokaqKMXQ0DwnSXfmtcyAuWVTjNt9yzjv54SxykobV5CTOB3TIko+Rqg59ejamJBxaJN6fvkw==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
     dependencies:
-      '@astrojs/language-server': 2.5.2(typescript@5.3.2)
+      '@astrojs/language-server': 2.5.2(typescript@5.3.3)
       chokidar: 3.5.3
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.3.2
+      typescript: 5.3.3
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
@@ -56,7 +56,7 @@ packages:
     resolution: {integrity: sha512-06DD2ZnItMwUnH81LBLco3tWjcZ1lGU9rLCCBaeUCGYe9cI0wKyY2W3kDyoW1I6GmcWgt1fu+D1CTvz+FIKf8A==}
     dev: false
 
-  /@astrojs/language-server@2.5.2(typescript@5.3.2):
+  /@astrojs/language-server@2.5.2(typescript@5.3.3):
     resolution: {integrity: sha512-O5SMzoQ65wSxA1KygreI9UJYmHpgt15bSYBxceHwqX7OCDM4Ek8mr6mZn45LGDtwM3dp1uup7kp8exfRPwIFbA==}
     hasBin: true
     peerDependencies:
@@ -70,7 +70,7 @@ packages:
     dependencies:
       '@astrojs/compiler': 2.3.2
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/kit': 1.10.10(typescript@5.3.2)
+      '@volar/kit': 1.10.10(typescript@5.3.3)
       '@volar/language-core': 1.10.10
       '@volar/language-server': 1.10.10
       '@volar/language-service': 1.10.10
@@ -90,13 +90,13 @@ packages:
       - typescript
     dev: false
 
-  /@astrojs/markdown-remark@4.0.0(astro@4.0.2):
+  /@astrojs/markdown-remark@4.0.0(astro@4.0.3):
     resolution: {integrity: sha512-JSrn49fJGuH/0S2TTGxLK7bNDspOakJWZVFHeP+IDFjWdghT4HtsTShS2EiISNx3zfOFBAwy5Cj4xT4U5BWNeA==}
     peerDependencies:
       astro: ^4.0.0-beta.0
     dependencies:
       '@astrojs/prism': 3.0.0
-      astro: 4.0.2(sass@1.69.5)(typescript@5.3.2)
+      astro: 4.0.3(sass@1.69.5)(typescript@5.3.3)
       github-slugger: 2.0.0
       import-meta-resolve: 4.0.0
       mdast-util-definitions: 6.0.0
@@ -993,14 +993,14 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: false
 
-  /@volar/kit@1.10.10(typescript@5.3.2):
+  /@volar/kit@1.10.10(typescript@5.3.3):
     resolution: {integrity: sha512-V2SyUPCPUhueqH8j5t48LJ0QsjExGSXzTv/XOdkUHV7hJ/ekyRGFqKxcfBtMq/nK6Tgu2G1ba+6u0d7e6wKcQw==}
     peerDependencies:
       typescript: '*'
     dependencies:
       '@volar/language-service': 1.10.10
       typesafe-path: 0.2.2
-      typescript: 5.3.2
+      typescript: 5.3.3
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
     dev: false
@@ -1126,14 +1126,14 @@ packages:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
     dev: false
 
-  /astro@4.0.2(sass@1.69.5)(typescript@5.3.2):
-    resolution: {integrity: sha512-ee7tGS53ZcKjorxTy6VEapIGwRA3rzSUAEXYhuchGppFxykObCbzJv5o3x8G2lvHm4g7Mn83OFrvNlwjYjsXnQ==}
+  /astro@4.0.3(sass@1.69.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-hrwe7CIVhSKW8/iibDs1hpqzZAtvx6Qu8TFFxjaGbooEWF720M9L+ZZtyTgrcy6K/ZHJ0xwFvZV3/X2Vvbf/LQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
       '@astrojs/compiler': 2.3.2
       '@astrojs/internal-helpers': 0.2.1
-      '@astrojs/markdown-remark': 4.0.0(astro@4.0.2)
+      '@astrojs/markdown-remark': 4.0.0(astro@4.0.3)
       '@astrojs/telemetry': 3.0.4
       '@babel/core': 7.23.5
       '@babel/generator': 7.23.5
@@ -1184,7 +1184,7 @@ packages:
       shikiji: 0.6.13
       string-width: 7.0.0
       strip-ansi: 7.1.0
-      tsconfck: 3.0.0(typescript@5.3.2)
+      tsconfck: 3.0.0(typescript@5.3.3)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
       vite: 5.0.6(sass@1.69.5)
@@ -1274,7 +1274,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001566
-      electron-to-chromium: 1.4.605
+      electron-to-chromium: 1.4.608
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
     dev: false
@@ -1564,8 +1564,8 @@ packages:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: false
 
-  /electron-to-chromium@1.4.605:
-    resolution: {integrity: sha512-V52j+P5z6cdRqTjPR/bYNxx7ETCHIkm5VIGuyCy3CMrfSnbEpIlLnk5oHmZo7gYvDfh2TfHeanB6rawyQ23ktg==}
+  /electron-to-chromium@1.4.608:
+    resolution: {integrity: sha512-J2f/3iIIm3Mo0npneITZ2UPe4B1bg8fTNrFjD8715F/k1BvbviRuqYGkET1PgprrczXYTHFvotbBOmUp6KE0uA==}
     dev: false
 
   /emmet@2.4.6:
@@ -3497,7 +3497,7 @@ packages:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
     dev: false
 
-  /tsconfck@3.0.0(typescript@5.3.2):
+  /tsconfck@3.0.0(typescript@5.3.3):
     resolution: {integrity: sha512-w3wnsIrJNi7avf4Zb0VjOoodoO0woEqGgZGQm+LHH9przdUI+XDKsWAXwxHA1DaRTjeuZNcregSzr7RaA8zG9A==}
     engines: {node: ^18 || >=20}
     hasBin: true
@@ -3507,7 +3507,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      typescript: 5.3.2
+      typescript: 5.3.3
     dev: false
 
   /tslib@2.6.2:
@@ -3539,8 +3539,8 @@ packages:
       semver: 7.5.4
     dev: false
 
-  /typescript@5.3.2:
-    resolution: {integrity: sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==}
+  /typescript@5.3.3:
+    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: false
