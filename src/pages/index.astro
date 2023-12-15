@@ -24,29 +24,51 @@ import str from "../assets/str.png";
 
     <!-- Dashly -->
     <script type="text/javascript" is:inline>
-      // Logging
-      window.dashlylogs = {};
-      window.dashlylogs.initTimestamp = Date.now();
+      function waitForBody() {
+        let el = document;
+        const config = { attributes: true, childList: true, subtree: true };
 
-      !(function () {
-        function t(t, e) {
-          return function () {
-            window.dashlyasync.push(t, arguments);
-          };
-        }
-        if ("undefined" == typeof dashly) {
-          var e = document.createElement("script");
-          (e.type = "text/javascript"),
-            (e.async = !0),
-            (e.src = "https://cdn.dashly.app/api.min.js"),
-            document.getElementsByTagName("head")[0].appendChild(e),
-            (window.dashly = {}),
-            (window.dashlyasync = []),
-            (dashly.settings = {});
-          for (var n = ["connect", "track", "identify", "auth", "onReady", "addCallback", "removeCallback", "trackMessageInteraction"], a = 0; a < n.length; a++) dashly[n[a]] = t(n[a]);
-        }
-      })(),
-        dashly.connect("7397-21bade4da25d30fc856f8f18b66");
+        return new Promise((resolve) => {
+          if (el.body) {
+            return resolve(el);
+          }
+
+          const observer = new MutationObserver((mutations) => {
+            if (el.body) {
+              observer.disconnect();
+              resolve(el);
+            }
+          });
+
+          observer.observe(el, config);
+        });
+      }
+
+      waitForBody().then((elm) => {
+        // Logging
+        window.dashlylogs = {};
+        window.dashlylogs.initTimestamp = Date.now();
+
+        !(function () {
+          function t(t, e) {
+            return function () {
+              window.dashlyasync.push(t, arguments);
+            };
+          }
+          if ("undefined" == typeof dashly) {
+            var e = document.createElement("script");
+            (e.type = "text/javascript"),
+              (e.async = !0),
+              (e.src = "https://cdn.dashly.app/api.min.js"),
+              document.getElementsByTagName("head")[0].appendChild(e),
+              (window.dashly = {}),
+              (window.dashlyasync = []),
+              (dashly.settings = {});
+            for (var n = ["connect", "track", "identify", "auth", "onReady", "addCallback", "removeCallback", "trackMessageInteraction"], a = 0; a < n.length; a++) dashly[n[a]] = t(n[a]);
+          }
+        })(),
+          dashly.connect("7397-21bade4da25d30fc856f8f18b66");
+      });
     </script>
 
     <!-- Google Tag Manager -->
