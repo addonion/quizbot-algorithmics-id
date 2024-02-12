@@ -1,13 +1,5 @@
 ---
-import { Image } from "astro:assets";
 
-import mobileBackground from "../assets/background.mobile@2x.webp";
-
-import icon1 from "../assets/icons/1.svg?raw";
-import icon2 from "../assets/icons/2.svg?raw";
-import icon3 from "../assets/icons/3.svg?raw";
-
-import str from "../assets/str.png";
 ---
 
 <html lang="en">
@@ -107,33 +99,11 @@ import str from "../assets/str.png";
         </div>
 
         <div class="about">
-          <Image class="background" src={mobileBackground} alt="Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah" />
-          <div id="text" class="text">
-            <div class="title">Dapatkan pelajaran pemrograman gratis untuk anak Anda dalam 4 langkah</div>
-            <div class="description">
-              <div>
-                <Fragment set:html={icon1} />
-                Untuk anak usia 5-17 tahun
-              </div>
-              <div>
-                <Fragment set:html={icon2} />
-                Membuat proyek IT kecil pertamanya
-              </div>
-              <div>
-                <Fragment set:html={icon3} />
-                Membahas pengalaman dan hobi anak
-              </div>
-              <button id="button" style="width: 341px" class="large is-animated">Mulai</button>
-            </div>
-          </div>
-          <div id="text--after" class="text d-none">
+          <div class="text">
             <div class="title">
               Hanya 1 menit untuk mengisi!
               <br />
               Daftarkan segera anak Anda untuk Kelas Percobaan Gratis
-              <div>
-                <Image src={str} width={300} alt="Hanya 1 menit untuk mengisi!" />
-              </div>
             </div>
           </div>
         </div>
@@ -547,34 +517,6 @@ import str from "../assets/str.png";
     height: 100%;
     background: white;
   }
-  @media (min-width: 1200px) {
-    .container:before {
-      content: "";
-      display: block;
-      width: 59%;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      background: url(../assets/background.webp) no-repeat;
-      background-position: center left;
-      background-size: cover;
-      pointer-events: none;
-    }
-  }
-
-  .background {
-    width: 100%;
-    height: auto;
-    background: url(../assets/background.mobile@blur.webp) no-repeat;
-    background-position: center left;
-    background-size: cover;
-  }
-  @media (min-width: 1200px) {
-    .background {
-      display: none;
-    }
-  }
 
   @media (min-width: 1200px) {
     .about {
@@ -704,13 +646,10 @@ import str from "../assets/str.png";
   #carrot-box {
     position: absolute;
     z-index: 9;
-    top: -100%;
+    top: 0;
     width: 100%;
     height: 100%;
     background-color: #fff;
-    &.active {
-      top: 0;
-    }
     .loader {
       position: absolute;
       top: 50%;
